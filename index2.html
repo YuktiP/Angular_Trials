@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+  <head>
+    <script type="text/javascript" src="angular.min.js"></script>
+   
+
+    <script type="text/javascript"  src="carctrl.js"></script>
+   
+
+    
+  </head>
+
+  <body>
+    <h1>Dispaly Filters</h1>
+   <div ng-controller="SpecialListCtrl">
+    <p>(~description~)</p>
+
+    Select food: 
+    <select ng-model="selectedFoodGroup.group">
+        <option value="Fruits">Fruits</option>
+        <option value="dairy">dairy</option>
+        <option value="vegetable">vegetable</option>
+         <option value="" selected>All</option>        
+    </select>
+    <ul ng-repeat="food in specialList | filter:selectedFoodGroup">
+        <li>uppercase (~food.name | uppercase  ~)</li>
+         <li>uppercase (~food.name | dashes ~)</li>
+        <li>lowercase (~food.name | lowercase ~)</li>
+        
+        <li>(~food.priceRupees | currency ~)</li>
+    </ul>
+
+   </div>
+
+   <br>
+   <br>
+   <br>
+   <div ng-controller="myctrl">
+        <h2>number filter</h2>
+        <p>(~ 12.354363656547457 |number~)</p>
+        <p>(~ 12.354363656547457 |number:5~)</p>
+        <p>(~ 12 |number:5~)</p>
+        <p>(~model | json~)</p>
+        <p> current date : (~thedate ~)</p>
+        <p> current year : (~thedate | date:'yyyy' ~)</p>
+        <p> current date : (~thedate | date:'MM/dd/yy' ~)</p>
+        <p> current date : (~thedate | date:'short' ~)</p>
+        <p> current date : (~thedate | date:'longDate' ~)</p>
+          
+   </div>
+
+   </div>
+  </body>
+
+</html>
