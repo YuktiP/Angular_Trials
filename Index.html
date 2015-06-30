@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+  <head>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript"  src="script.js"></script>
+    <script type="text/javascript"  src="controllers/mycontroller.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    
+  </head>
+
+  <body>
+    <div ng-controller="appController">
+    	<p> {{firstname}} </p>
+    	<p> {{lastname}} </p>
+
+    	<a href="#" ng-click="setName('yukti','patil')">Set Name </a>
+
+    	<br>
+    	<br>
+    	{{1+1}}
+
+    	<br>
+    	<br>
+    	<br>
+    	<input ng-model="testinput" type="text"/>
+    	{{testinput}}
+    </div>
+
+<br>
+<br>
+
+    <div ng-controller="divideController">
+    	<div>
+    		Enter value 1: <input type="text" ng-model="numberData.val1"/>
+    	</div>
+    	first Number Entered: {{numberData.val1}}
+    	<div>
+    		Enter value 2: <input type="text" ng-model="numberData.val2"/>
+    	</div>second Number Entered: {{numberData.val2}}
+    	<div>
+    		<button ng-click=divide(numberData.val1,numberData.val2) >
+    			press to calculate {{numberData.val1}} / {{numberData.val2}}</button>
+    	</div>
+
+    </div>
+
+
+<br>
+<br>
+<div ng-controller="OuterCtrl">
+		{{val1}} 
+	<div ng-controller="InnerCtrl">
+		{{val1}} <input type="text" ng-model="val1"/>
+	</div>
+</div>
+<div ng-controller="OuterCtrl">
+		{{val2.name}} 
+	<div ng-controller="InnerCtrl">
+		{{val2.name}} <input type="text" ng-model="val2.name"/>
+	</div>
+</div>
+  </body>
+
+</html>
